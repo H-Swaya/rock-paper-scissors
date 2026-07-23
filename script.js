@@ -11,5 +11,8 @@ function getComputerChoice () {
     }
 }
 
+let userChoice = prompt("Pick one. Rock, paper or scissors?")
+
+
 
 
