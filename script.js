@@ -20,17 +20,22 @@ let computerScore = 0
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
-    if (humanChoice == "rock" && computerChoice == "rock") {
-        console.log("It's a draw!")
-    } else if (humanChoice == "rock" && computerChoice == "paper") {
-        computerScore = computerScore + 1;
-        console.log("You lost!")
-    } else if (humanChoice == rock && computerChoice == "scissors") {
-        humanScore = humanScore + 1
-        console.log("You won!")
+    console.log("userChoice = " + humanChoice + " computerChoice = " + computerChoice)
+    // Draw
+    if (humanChoice == computerChoice) {    
+
+        console.log("It's a draw")
+    } 
+    // Player Won
+    else if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper" && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper") {
+        console.log("You Won!")
+    }   
+    // Player Lose
+    else {
+        
+        console.log("You Lost!")
     }
 }
 
 playRound(userChoice, computerChoice)
-
 
