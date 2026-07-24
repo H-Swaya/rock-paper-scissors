@@ -1,5 +1,3 @@
-let computerChoice = getComputerChoice();
-
 function getComputerChoice () {
     let randomChoice = Math.random();
     if (randomChoice <= 0.333) {
@@ -37,11 +35,11 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame () {
-    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
-    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
-    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
-    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
-    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
+    playRound(prompt("Pick one. Rock, paper or scissors?"), getComputerChoice())
+    playRound(prompt("Pick one. Rock, paper or scissors?"), getComputerChoice())
+    playRound(prompt("Pick one. Rock, paper or scissors?"), getComputerChoice())
+    playRound(prompt("Pick one. Rock, paper or scissors?"), getComputerChoice())
+    playRound(prompt("Pick one. Rock, paper or scissors?"), getComputerChoice())
 
     if (humanScore > computerScore) {
         console.log("CONGRATS, YOU WON THE MATCH")
