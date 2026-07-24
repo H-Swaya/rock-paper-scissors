@@ -42,6 +42,14 @@ function playGame () {
     playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
     playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
     playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
+
+    if (humanScore > computerScore) {
+        console.log("CONGRATS, YOU WON THE MATCH")
+    } else if (humanScore < computerScore) {
+        console.log("UNFORTUNATELY, YOU LOST THE MATCH") 
+    } else {
+        console.log("THIS MATCH ENDED UP IN A DRAW!")
+    }
 }
 
 playGame()
