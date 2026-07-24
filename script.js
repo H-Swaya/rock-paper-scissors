@@ -11,8 +11,6 @@ function getComputerChoice () {
     }
 }
 
-let userChoice = prompt("Pick one. Rock, paper or scissors?")
-
 let humanScore = 0
 
 let computerScore = 0
@@ -23,19 +21,27 @@ function playRound(humanChoice, computerChoice) {
     console.log("userChoice = " + humanChoice + " computerChoice = " + computerChoice)
     // Draw
     if (humanChoice == computerChoice) {    
-
         console.log("It's a draw")
     } 
     // Player Won
     else if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper" && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper") {
+        humanScore = humanScore + 1
         console.log("You Won!")
     }   
     // Player Lose
     else {
-        
+        computerScore = computerScore + 1
         console.log("You Lost!")
     }
+    console.log("Player Score = " + humanScore + "|| Computer Score = " + computerScore)
 }
 
-playRound(userChoice, computerChoice)
+function playGame () {
+    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
+    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
+    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
+    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
+    playRound(prompt("Pick one. Rock, paper or scissors?"), computerChoice)
+}
 
+playGame()
