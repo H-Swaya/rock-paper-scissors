@@ -16,12 +16,13 @@ let computerScore = 0;
 function playRound(humanChoice, getComputerChoice) {
   humanChoice = humanChoice.toLowerCase();
   computerChoice = getComputerChoice().toLowerCase();
-  console.log(
-    "userChoice = " + humanChoice + " computerChoice = " + computerChoice,
-  );
+  userPick.textContent = `You picked || ${humanChoice}`;
+  computerPick.textContent = `Computer picked || ${computerChoice}`;
+
   // Draw
   if (humanChoice == computerChoice) {
-    console.log("It's a draw");
+    roundResult.style.color = "black";
+    roundResult.textContent = " It's a Draw!";
   }
   // Player Won
   else if (
@@ -30,18 +31,29 @@ function playRound(humanChoice, getComputerChoice) {
     (humanChoice == "scissors" && computerChoice == "paper")
   ) {
     humanScore = humanScore + 1;
-    console.log("You Won!");
+    roundResult.style.color = "Green";
+    roundResult.textContent = " You won this round!";
   }
   // Player Lose
   else {
     computerScore = computerScore + 1;
-    console.log("You Lost!");
+    roundResult.style.color = "Red";
+    roundResult.textContent = " You lost this round!";
   }
-  console.log(
-    "Player Score = " + humanScore + "|| Computer Score = " + computerScore,
-  );
+
+  userScoreDiv.textContent = `Your score: ${humanScore}`;
+  computerScoreDiv.textContent = `Computers Score: ${computerScore}`;
+
+  if (humanScore === 5) {
+    setTimeout(() => alert("You won"), 0);
+    location.reload();
+  } else if (computerScore === 5) {
+    setTimeout(() => alert("Computer won"), 0);
+    location.reload();
+  }
 }
 
+// Logic for button choices
 let rockButton = document.querySelector("#rock");
 rockButton.addEventListener("click", () =>
   playRound("rock", getComputerChoice),
@@ -56,3 +68,12 @@ let scissorButton = document.querySelector("#scissors");
 scissorButton.addEventListener("click", () =>
   playRound("scissors", getComputerChoice),
 );
+
+// Element selection for score logic
+let userScoreDiv = document.querySelector("#userScore");
+let computerScoreDiv = document.querySelector("#computerScore");
+
+// Element Selection for choice and results logic
+let roundResult = document.querySelector("#result");
+let userPick = document.querySelector("#userPick");
+let computerPick = document.querySelector("#computerPick");
